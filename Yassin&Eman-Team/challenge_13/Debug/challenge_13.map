@@ -71,7 +71,7 @@ Discarded input sections
                 0x00000000       0x28 Timer/Timer.o
  .debug_ranges  0x00000000       0x18 Timer/Timer.o
  .debug_line    0x00000000       0xc1 Timer/Timer.o
- .debug_str     0x00000000      0x1a5 Timer/Timer.o
+ .debug_str     0x00000000      0x197 Timer/Timer.o
  .comment       0x00000000       0x31 Timer/Timer.o
  .debug_frame   0x00000000       0x34 Timer/Timer.o
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/5.4.0/avr5\libgcc.a(_exit.o)
@@ -511,13 +511,13 @@ END GROUP
  .debug_abbrev  0x000006cc      0x15e LCD/Lcd.o
  .debug_abbrev  0x0000082a       0x68 main.o
 
-.debug_line     0x00000000     0x1150
+.debug_line     0x00000000     0x114f
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_line    0x00000115      0xa31 Challenge/challenge.o
- .debug_line    0x00000b46      0x176 DIO/Dio.o
- .debug_line    0x00000cbc      0x425 LCD/Lcd.o
- .debug_line    0x000010e1       0x6f main.o
+ .debug_line    0x00000115      0xa30 Challenge/challenge.o
+ .debug_line    0x00000b45      0x176 DIO/Dio.o
+ .debug_line    0x00000cbb      0x425 LCD/Lcd.o
+ .debug_line    0x000010e0       0x6f main.o
 
 .debug_frame    0x00000000      0x1b4
  *(.debug_frame)
@@ -526,17 +526,17 @@ END GROUP
  .debug_frame   0x000000a0       0xf0 LCD/Lcd.o
  .debug_frame   0x00000190       0x24 main.o
 
-.debug_str      0x00000000      0x570
+.debug_str      0x00000000      0x5b2
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.209/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x36b Challenge/challenge.o
-                                0x39f (size before relaxing)
- .debug_str     0x00000501       0x1d DIO/Dio.o
+ .debug_str     0x00000196      0x35d Challenge/challenge.o
+                                0x391 (size before relaxing)
+ .debug_str     0x000004f3       0x6d DIO/Dio.o
                                 0x1c2 (size before relaxing)
- .debug_str     0x0000051e       0x41 LCD/Lcd.o
-                                0x2a9 (size before relaxing)
- .debug_str     0x0000055f       0x11 main.o
-                                0x1a3 (size before relaxing)
+ .debug_str     0x00000560       0x41 LCD/Lcd.o
+                                0x29b (size before relaxing)
+ .debug_str     0x000005a1       0x11 main.o
+                                0x195 (size before relaxing)
 
 .debug_loc      0x00000000     0x1cd0
  *(.debug_loc)

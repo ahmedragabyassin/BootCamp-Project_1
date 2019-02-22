@@ -181,10 +181,6 @@ void LCD_DisplayString(const uint8 Str[])
 }
 
 
-
-
-
-
 /************************************************************************/
 /* Function: LCD Generate character                                     */
 /* @param: arr[], array of hexa to the certain shape                    */
@@ -201,7 +197,7 @@ void LCD_GenerateCharacter(uint8 arr[], uint8 add_Location, uint8 char_add, uint
 		LCD_DisplayChar(arr[i]);
 		_delay_ms(TEN_MS);
 	}
-	LCD_SendCommand(0x80);
+	LCD_SendCommand(LCD_SET_CURSOR_LOCATION);
 	LCD_GotoRowColumn(ROw, Col);
 	LCD_DisplayChar(char_add);
 }

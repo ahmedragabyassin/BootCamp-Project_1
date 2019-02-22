@@ -8,12 +8,9 @@
 
 #ifndef LCD_H_
 #define LCD_H_
-#include "BitwiseOperations.h"
 #include "Dio.h"
-#include "types.h"
+#include "BitwiseOperations.h"
 #include "lcd_cfg.h"
-#include "CommonDelays.h"
-#include "CommonNumbers.h"
 #include "CommonDefinations.h"
 #include "ChallengeCommonDef.h"
 #ifndef F_CPU

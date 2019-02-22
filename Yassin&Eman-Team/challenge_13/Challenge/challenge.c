@@ -20,8 +20,8 @@ void Challenge(void)
 	/************************************************************************/
 	/* Array of hexa to draw pattern on LCD                                 */
 	/************************************************************************/
-	uint8 Happy[NUM_8]	= {0x00,0x0A,0x00,0x00,0x11,0x1F,0x0E,0x00};
-	uint8 Sad[NUM_8]	= {0x00,0x0A,0x00,0x00,0x0E,0x1F,0x11,0x00};
+	uint8 Happy[NUM_8]	= {0x00,0x0A,0x00,0x00,0x11,0x1F,0x0E,0x00}; /* draw smiley face */
+	uint8 Sad[NUM_8]	= {0x00,0x0A,0x00,0x00,0x0E,0x1F,0x11,0x00}; /* draw sad face */
 	
 	/************************************************************************/
 	/* hold addresses of CGRAM and DDRAM of drawn patterns                  */
@@ -118,6 +118,7 @@ void Challenge(void)
 				LCD_GenerateCharacter(Sad, ADD_CGRAM_sad,add_char_sad,LCD_ROW2,LCD_COL8);
 				LCD_GenerateCharacter(Sad, ADD_CGRAM_sad,add_char_sad,LCD_ROW1,LCD_COL9);
 				LCD_GenerateCharacter(Sad, ADD_CGRAM_sad,add_char_sad,LCD_ROW2,LCD_COL9);
+				/* blink buzzer and leds */
 				DIO_WritePin(BUZZER_PIN,HIGH);
 				_delay_ms(HUNDRED_MS);
 				DIO_WritePin(BUZZER_PIN,LOW);

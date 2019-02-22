@@ -17,15 +17,15 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
   6 .debug_abbrev 00000892  00000000  00000000  000056d8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_line   00001150  00000000  00000000  00005f6a  2**0
+  7 .debug_line   0000114f  00000000  00000000  00005f6a  2**0
                   CONTENTS, READONLY, DEBUGGING
   8 .debug_frame  000001b4  00000000  00000000  000070bc  2**2
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_str    00000570  00000000  00000000  00007270  2**0
+  9 .debug_str    000005b2  00000000  00000000  00007270  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_loc    00001cd0  00000000  00000000  000077e0  2**0
+ 10 .debug_loc    00001cd0  00000000  00000000  00007822  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_ranges 00000090  00000000  00000000  000094b0  2**0
+ 11 .debug_ranges 00000090  00000000  00000000  000094f2  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -188,7 +188,7 @@ void Challenge(void)
 	/************************************************************************/
 	/* Array of hexa to draw pattern on LCD                                 */
 	/************************************************************************/
-	uint8 Happy[NUM_8]	= {0x00,0x0A,0x00,0x00,0x11,0x1F,0x0E,0x00};
+	uint8 Happy[NUM_8]	= {0x00,0x0A,0x00,0x00,0x11,0x1F,0x0E,0x00}; /* draw smiley face */
      10e:	88 e0       	ldi	r24, 0x08	; 8
      110:	e0 e6       	ldi	r30, 0x60	; 96
      112:	f0 e0       	ldi	r31, 0x00	; 0
@@ -198,7 +198,7 @@ void Challenge(void)
      11a:	0d 92       	st	X+, r0
      11c:	8a 95       	dec	r24
      11e:	e1 f7       	brne	.-8      	; 0x118 <Challenge+0x26>
-	uint8 Sad[NUM_8]	= {0x00,0x0A,0x00,0x00,0x0E,0x1F,0x11,0x00};
+	uint8 Sad[NUM_8]	= {0x00,0x0A,0x00,0x00,0x0E,0x1F,0x11,0x00}; /* draw sad face */
      120:	88 e0       	ldi	r24, 0x08	; 8
      122:	e8 e6       	ldi	r30, 0x68	; 104
      124:	f0 e0       	ldi	r31, 0x00	; 0
@@ -850,6 +850,7 @@ void Challenge(void)
      5c4:	ce 01       	movw	r24, r28
      5c6:	09 96       	adiw	r24, 0x09	; 9
      5c8:	0e 94 40 0b 	call	0x1680	; 0x1680 <LCD_GenerateCharacter>
+				/* blink buzzer and leds */
 				DIO_WritePin(BUZZER_PIN,HIGH);
      5cc:	61 e0       	ldi	r22, 0x01	; 1
      5ce:	8b e0       	ldi	r24, 0x0B	; 11
@@ -3403,7 +3404,7 @@ void LCD_GenerateCharacter(uint8 arr[], uint8 add_Location, uint8 char_add, uint
 		LCD_DisplayChar(arr[i]);
 		_delay_ms(TEN_MS);
 	}
-	LCD_SendCommand(0x80);
+	LCD_SendCommand(LCD_SET_CURSOR_LOCATION);
     16ba:	80 e8       	ldi	r24, 0x80	; 128
     16bc:	0e 94 d6 09 	call	0x13ac	; 0x13ac <LCD_SendCommand>
 	LCD_GotoRowColumn(ROw, Col);
@@ -3424,19 +3425,19 @@ void LCD_GenerateCharacter(uint8 arr[], uint8 add_Location, uint8 char_add, uint
     16dc:	08 95       	ret
 
 000016de <main>:
-	#endif
+	
 	/************************************************************************/
-	/* test LCD driver                                                      */
+	/* Test challenge                                                       */
 	/************************************************************************/
 	#if ENABLE_CODE
 	LCD_Init();
     16de:	0e 94 4c 0a 	call	0x1498	; 0x1498 <LCD_Init>
-	KeyPad_Init();
-	uint8 pressed_key = NUM_0;
-	#endif
-    while (NUM_1) 
-    {
-		Challenge();
+		
+		/************************************************************************/
+		/* Test Challenge                                                       */
+		/************************************************************************/
+		#if ENABLE_CODE
+			Challenge(); 
     16e2:	0e 94 79 00 	call	0xf2	; 0xf2 <Challenge>
     16e6:	fd cf       	rjmp	.-6      	; 0x16e2 <main+0x4>
 

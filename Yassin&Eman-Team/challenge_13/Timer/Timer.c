@@ -40,7 +40,7 @@ void TimerInit(void)
 
 /************************************************************************/
 /* Function: Timer Init                                                 */
-/* @param: n, numer of ms 			                                    */
+/* @param: n, number of ms 			                                    */
 /* return: void			                                                */
 /* Description: delay for n ms			                                */
 /************************************************************************/
@@ -51,9 +51,9 @@ void TimerDelay(uint32 n)
 	/* reset timer counts */
 	TCNT0 = 0x00;
 	/* loop to reach n */
-	for (n; n>0; n++)
+	for (n; n > NUM_0; n--)
 	{
-		while(!(TIFR&(1<<OCF0)));
-		TIFR |= (1<<OCF0);
+		while(!GET_BIT(TIFR,OCF0));
+		SET_BIT(TIFR,OCF0);
 	}
 }
